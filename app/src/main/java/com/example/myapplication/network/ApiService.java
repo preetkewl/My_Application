@@ -1,15 +1,18 @@
 package com.example.myapplication.network;
 
+import com.example.myapplication.beans.RegisterResponse;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Single;
-import okhttp3.ResponseBody;
 import retrofit2.http.Body;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiService {
 
-    @POST("api/login")
-    Single<ResponseBody> emailValidate(@Body JsonObject object);
+    @POST("register")
+    Single<RegisterResponse> register(@Header("Content-Type") String value, @Body JsonObject object);
+
+
 
 }

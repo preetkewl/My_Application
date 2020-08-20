@@ -15,7 +15,6 @@ public class RestClient {
 
     private static ApiService apiPostService;
     private static Retrofit retrofitPostClient;
-    private static Retrofit retrofitPostTokenClient;
 
 
     public static ApiService getRestClient(String url) {
@@ -37,6 +36,7 @@ public class RestClient {
                     .baseUrl(url).client(okClient)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+
                     .build();
 
             apiPostService = retrofitPostClient.create(ApiService.class);
